@@ -1,0 +1,9 @@
+const express = require('express');
+const router = express.Router();
+const { protect } = require('../middleware/auth.middleware');
+
+router.get('/credits', protect, (req, res) => {
+  res.json({ credits: req.user.credits });
+});
+
+module.exports = router;
